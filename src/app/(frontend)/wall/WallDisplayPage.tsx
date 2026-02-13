@@ -46,7 +46,24 @@ export default function WallDisplayPage() {
           ) : error ? (
             <p className="wall-error">{error}</p>
           ) : list.length === 0 ? (
-            <p className="wall-empty">Пока ни одного поздравления</p>
+            <div className="wall-empty wall-empty--qr">
+              <p className="wall-empty-text">Отсканируйте QR‑код, чтобы оставить поздравление</p>
+              <a
+                href="https://ira-birthday.vercel.app/wall/write"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="wall-qr-link"
+                aria-label="Оставить поздравление"
+              >
+                <img
+                  src={`https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=${encodeURIComponent('https://ira-birthday.vercel.app/wall/write')}`}
+                  alt="QR‑код для добавления поздравления"
+                  width={280}
+                  height={280}
+                  className="wall-qr-code"
+                />
+              </a>
+            </div>
           ) : (
             <div className="wall-grid-inner" aria-live="polite">
               {list.map((item) => (

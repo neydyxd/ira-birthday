@@ -24,15 +24,15 @@ export interface SongCard {
 
 /** Сетка 3×3: для каждой категории по три песни (300, 600, 900) */
 export const SONGS: SongCard[] = [
-  { categoryId: 'ira', points: 300, title: 'OG BUDA - ОПГ сити', audioUrl: '/melodies/og-buda.mp3', cardName: '1' },
-  { categoryId: 'ira', points: 600, title: 'Песня Иры 2', audioUrl: '', cardName: '2' },
-  { categoryId: 'ira', points: 900, title: 'Песня Иры 3', audioUrl: '', cardName: '3' },
-  { categoryId: 'stepa', points: 300, title: 'Песня Степы 1', audioUrl: '', cardName: '1' },
-  { categoryId: 'stepa', points: 600, title: 'Песня Степы 2', audioUrl: '', cardName: '2' },
-  { categoryId: 'stepa', points: 900, title: 'Песня Степы 3', audioUrl: '', cardName: '3' },
-  { categoryId: 'friends', points: 300, title: 'Песня друзей 1', audioUrl: '', cardName: '1' },
-  { categoryId: 'friends', points: 600, title: 'Песня друзей 2', audioUrl: '', cardName: '2' },
-  { categoryId: 'friends', points: 900, title: 'Песня друзей 3', audioUrl: '', cardName: '3' },
+  { categoryId: 'ira', points: 300, title: 'УННВ - МУЗА', audioUrl: '/melodies/unnv.mp3', cardName: '1' },
+  { categoryId: 'ira', points: 600, title: 'Yanix - Кто-то ещё', audioUrl: '/melodies/yanix.mp3', cardName: '2' },
+  { categoryId: 'ira', points: 900, title: 'Scally Milano, Voskresenskii - Русская кукла', audioUrl: '/melodies/scaly.mp3', cardName: '3' },
+  { categoryId: 'stepa', points: 300, title: 'OG BUDA - ОПГ сити', audioUrl: '/melodies/og-buda.mp3', cardName: '1' },
+  { categoryId: 'stepa', points: 600, title: '50 Cent - In Da Club', audioUrl: '/melodies/50cent.mp3', cardName: '2' },
+  { categoryId: 'stepa', points: 900, title: 'Sade - Smooth Operator', audioUrl: '/melodies/operator.mp3', cardName: '3' },
+  { categoryId: 'friends', points: 300, title: 'Boulevard Depo - Friendly Fire', audioUrl: '/melodies/depo.mp3', cardName: '1' },
+  { categoryId: 'friends', points: 600, title: 'GORILLA GLUE, LIL NAKUR - Браги два бидона', audioUrl: '/melodies/braga.mp3', cardName: '2' },
+  { categoryId: 'friends', points: 900, title: 'Kanye West - Praise God', audioUrl: '/melodies/west.mp3', cardName: '3' },
 ]
 
 export function getSong(categoryId: CategoryId, points: PointValue): SongCard | undefined {

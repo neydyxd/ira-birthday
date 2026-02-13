@@ -73,6 +73,22 @@ export default function GuessMelodyPlayer({ src, key: _key }: GuessMelodyPlayerP
     setCurrentTime(v)
   }, [])
 
+  const progressWrapRef = useRef<HTMLDivElement>(null)
+  const handleProgressClick = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      const el = audioRef.current
+      const wrap = progressWrapRef.current
+      if (!el || !wrap || !duration || duration <= 0) return
+      const rect = wrap.getBoundingClientRect()
+      const x = e.clientX - rect.left
+      const percent = Math.max(0, Math.min(1, x / rect.width))
+      const newTime = percent * duration
+      el.currentTime = newTime
+      setCurrentTime(newTime)
+    },
+    [duration],
+  )
+
   const progress = duration > 0 ? (currentTime / duration) * 100 : 0
 
   return (
@@ -98,7 +114,11 @@ export default function GuessMelodyPlayer({ src, key: _key }: GuessMelodyPlayerP
           )}
         </span>
       </button>
-      <div className="guess-melody-player-progress-wrap">
+      <div
+        ref={progressWrapRef}
+        className="guess-melody-player-progress-wrap"
+        onClick={handleProgressClick}
+      >
         <input
           type="range"
           className="guess-melody-player-range"
@@ -107,6 +127,8 @@ export default function GuessMelodyPlayer({ src, key: _key }: GuessMelodyPlayerP
           value={currentTime}
           step={0.1}
           onChange={handleSeek}
+          onInput={handleSeek}
+          onClick={(e) => e.stopPropagation()}
           aria-label="Прогресс воспроизведения"
         />
         <div
